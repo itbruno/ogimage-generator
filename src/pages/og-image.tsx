@@ -17,7 +17,7 @@ function OgImage() {
             color: '#fff'
           }}
         >
-          <p>{query.title}</p>
+          <h2>{query.title}</h2>
           <div style={{ position: 'relative', width: 200, height: 300 }}>
             {query.image && (
               <img

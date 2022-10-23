@@ -1,7 +1,16 @@
-import type { NextPage } from 'next';
+import sampleImage from '@assets/sample-image.webp';
 
-const Home: NextPage = () => {
-  return <h1>Home</h1>;
-};
+export default function Home() {
+  const title =
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit amet, aliquam eaque magni quas ipsam recusandae dignissimos explicabo inventore maxime quisquam. Doloribus, animi sequi? Et, consequuntur? Officia quis reprehenderit assumenda.';
 
-export default Home;
+  return (
+    <>
+      {/* Return image from API */}
+      <img
+        src={`/api/ogimage?title=${title}&width=800&height=400&image=${sampleImage.src}`}
+        alt=""
+      />
+    </>
+  );
+}
