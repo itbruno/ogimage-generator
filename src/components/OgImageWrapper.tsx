@@ -25,8 +25,8 @@ function OgImageWrapper({ title, image, width, height }: ImageWrapperProps) {
       {!!image && (
         <img
           style={{
-            maxHeight: 350,
-            maxWidth: '100%'
+            maxWidth: 350,
+            maxHeight: 400
           }}
           src={image}
           alt={title}
