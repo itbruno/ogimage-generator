@@ -27,7 +27,7 @@ export default async function ogimage(req: NextRequest, res: NextApiResponse) {
   req.nextUrl.searchParams.forEach((val, key) => {
     return val !== ''
       ? (PARAMS[key] = val)
-      : (PARAMS[key] = defaultParams[key]);
+      : defaultParams[key as keyof typeof defaultParams];
   });
 
   try {
