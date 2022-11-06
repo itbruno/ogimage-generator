@@ -1,5 +1,5 @@
-import { OgImageWrapper } from '@components/OgImageWrapper';
 import Head from 'next/head';
+import { OgImageWrapper } from '@components/OgImageWrapper';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     setGeneratedImageUrl(
-      `/api/ogimage?title=${title}&width=${width}&height=${height}&image=${image}`
+      `${window.location.origin}/api/ogimage?title=${title}&width=${width}&height=${height}&image=${image}`
     );
   }, [image, title, width, height]);
 
