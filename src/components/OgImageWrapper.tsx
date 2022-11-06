@@ -22,7 +22,16 @@ function OgImageWrapper({ title, image, width, height }: ImageWrapperProps) {
         boxSizing: 'border-box'
       }}
     >
-      {!!image && <img src={image} alt={title} />}
+      {!!image && (
+        <img
+          style={{
+            maxHeight: 350,
+            maxWidth: '100%'
+          }}
+          src={image}
+          alt={title}
+        />
+      )}
       <div
         style={{
           fontSize: '45px',
