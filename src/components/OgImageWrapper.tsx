@@ -1,5 +1,5 @@
-interface ImageWrapperProps {
-  title: string;
+export interface ImageWrapperProps {
+  title?: string;
   image?: string;
   width?: number;
   height?: number;
