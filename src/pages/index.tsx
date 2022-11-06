@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 function Home() {
   const [title, setTitle] = useState('Your title here');
-  const [image, setImage] = useState('https://via.placeholder.com/200.png');
+  const [image, setImage] = useState('');
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(600);
   const [generatedImageUrl, setGeneratedImageUrl] = useState('');
