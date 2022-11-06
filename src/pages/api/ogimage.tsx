@@ -36,7 +36,7 @@ export default async function ogimage(req: NextRequest, res: NextApiResponse) {
         <OgImageWrapper
           width={PARAMS.width}
           height={PARAMS.height}
-          image={PARAMS.image}
+          image={encodeURIComponent(PARAMS.image)}
           title={PARAMS.title}
         />
       ),
