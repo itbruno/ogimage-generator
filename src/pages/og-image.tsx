@@ -1,5 +1,5 @@
 import Error from 'next/error';
-import { ImageWrapper } from '@components/ImageWrapper';
+import { ImageWrapper } from '@components/OgImageWrapper';
 import { useRouter } from 'next/router';
 
 interface OgImageProps {

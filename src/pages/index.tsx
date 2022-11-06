@@ -1,5 +1,5 @@
 import sampleImage from '@assets/sample-image.webp';
-import { ImageWrapper } from '@components/ImageWrapper';
+import { OgImageWrapper } from '@components/OgImageWrapper';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -58,7 +58,12 @@ function Home() {
         </a>
       </div>
 
-      <ImageWrapper width={width} height={height} image={image} title={title} />
+      <OgImageWrapper
+        width={width}
+        height={height}
+        image={image}
+        title={title}
+      />
     </div>
   );
 }

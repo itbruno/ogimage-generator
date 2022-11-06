@@ -10,6 +10,7 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "dependencies": {
+    "@vercel/og": "^0.0.20",
     "chrome-aws-lambda": "^10.1.0",
     "next": "^13.0.1",
     "puppeteer-core": "^19.1.0",
