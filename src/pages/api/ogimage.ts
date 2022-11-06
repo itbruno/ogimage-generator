@@ -14,7 +14,7 @@ export default async function ogimage(
 ) {
   const { title, image, width, height }: ScreenshotProps = req.query;
 
-  const imageEncoded = encodeURIComponent(image);
+  const imageEncoded = encodeURIComponent(String(image));
 
   try {
     // TO-DO: Change this hardcoded url
