@@ -1,44 +1,38 @@
 import { ImageResponse } from '@vercel/og';
-import { ImageWrapperProps, OgImageWrapper } from '@components/OgImageWrapper';
 import { NextRequest } from 'next/server';
 import { NextApiResponse } from 'next';
+import { BlogTheme, DefaultTheme } from '@themes/index';
+import { ReactElement } from 'react';
 
 export const config = {
   runtime: 'experimental-edge'
 };
 
 export default async function ogimage(req: NextRequest, res: NextApiResponse) {
-  const defaultParams: ImageWrapperProps = {
-    title: '',
-    image: '',
-    width: 800,
-    height: 600
-  };
-
   let PARAMS: any = {};
+  let selectedTheme: ReactElement;
 
+  // Add all dynamic url params to PARAMS
   req.nextUrl.searchParams.forEach((val, key) => {
-    return val !== ''
-      ? (PARAMS[key] = val)
-      : defaultParams[key as keyof typeof defaultParams];
+    return !!val ? (PARAMS[key] = val) : null;
   });
 
+  // Switch OG Image style by themes created
+  switch (PARAMS.theme) {
+    case 'blog':
+      selectedTheme = <BlogTheme params={PARAMS} />;
+      break;
+    default:
+      selectedTheme = <DefaultTheme params={PARAMS} />;
+      break;
+  }
+
   try {
-    return new ImageResponse(
-      (
-        <OgImageWrapper
-          width={PARAMS.width}
-          height={PARAMS.height}
-          image={PARAMS.image}
-          title={PARAMS.title}
-        />
-      ),
-      {
-        width: PARAMS.width,
-        height: PARAMS.height
-      }
-    );
+    return new ImageResponse(selectedTheme, {
+      width: PARAMS.width,
+      height: PARAMS.height
+    });
   } catch {
-    res.status(404).send('Route not found');
+    res.status(500).send('Server error');
   }
 }

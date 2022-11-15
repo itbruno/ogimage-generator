@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { OgImageWrapper } from '@components/OgImageWrapper';
+
+import { BlogTheme } from '@themes/BlogTheme';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -9,10 +10,13 @@ function Home() {
   const [height, setHeight] = useState(600);
   const [generatedImageUrl, setGeneratedImageUrl] = useState('');
 
+  const [params, setParams] = useState({ title, image, width, height });
+
   useEffect(() => {
     setGeneratedImageUrl(
       `${window.location.origin}/api/ogimage?title=${title}&width=${width}&height=${height}&image=${image}`
     );
+    setParams({ title, image, width, height });
   }, [image, title, width, height]);
 
   return (
@@ -64,12 +68,7 @@ function Home() {
           </a>
         </div>
 
-        <OgImageWrapper
-          width={width}
-          height={height}
-          image={image}
-          title={title}
-        />
+        <BlogTheme params={params} />
       </div>
     </>
   );
