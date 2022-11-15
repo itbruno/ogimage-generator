@@ -1,4 +1,14 @@
-function BlogTheme({ params }: any) {
+interface BlogThemeProps {
+  params: {
+    title?: string;
+    image?: string;
+    author?: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+function BlogTheme({ params }: BlogThemeProps) {
   return (
     <div
       style={{

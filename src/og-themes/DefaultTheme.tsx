@@ -1,4 +1,14 @@
-function DefaultTheme({ params }: any) {
+interface DefaultThemeProps {
+  params: {
+    title?: string;
+    image?: string;
+    author?: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+function DefaultTheme({ params }: DefaultThemeProps) {
   return (
     <div
       style={{
