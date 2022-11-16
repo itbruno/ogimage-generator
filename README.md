@@ -28,8 +28,19 @@ interface EventThemeProps {
 
 function EventTheme({ params }: EventThemeProps) {
   return (
-    <div style={{ display: 'flex', backgroundColor: '#ffcc00' }}>
+    <div
+      style={{
+        width: 1200,
+        height: 630,
+        alignItems: 'center',
+        justifyContent: 'center',
+        display: 'flex',
+        backgroundColor: '#ffcc00',
+        fontSize: 40
+      }}
+    >
       {params.title}
+      <br />
       {params.subtitle}
     </div>
   );
@@ -66,10 +77,6 @@ switch (PARAMS.theme) {
 
 Now you can run and test your new theme at localhost
 
-```sh
-$ open http://localhost:3000/api/ogimage?title=My awesome title&subtitle=Front-end Developer&theme=event
-```
-
 ## Get started
 
 This project is running with NextJS, to run locally, install all dependencies
@@ -85,4 +92,10 @@ $ yarn install
 
 ```sh
 $ yarn dev
+```
+
+Sample
+
+```sh
+http://localhost:3000/api/ogimage?title=My awesome title&subtitle=Front-end Developer&theme=event
 ```
