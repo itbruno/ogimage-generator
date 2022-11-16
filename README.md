@@ -2,7 +2,12 @@
 
 This is a open-source project to generate dynamic Open-graph images using [@vercel/og](https://github.com/vercel/og-image) package.
 
-The purpose is generate custom open-graph images passing an custom themes as param.
+The purpose is generate custom open-graph images passing an custom themes as param
+- 🔗 [Demo 1](https://ogimage-generator-sigma.vercel.app/api/ogimage?title=Guia%20completo%20de%20como%20vender%20sem%20estoque?&image=https://d1ih8jugeo2m5m.cloudfront.net/2020/11/Como-vender-sem-ter-um-estoque-proprio.jpg&author=Victoria%20Salemi) with default theme
+  - Ex.: `/api/ogimage?title=something&subtitle=Anything`
+ 
+- 🔗 [Demo 2](https://ogimage-generator-sigma.vercel.app/api/ogimage?title=Guia%20completo%20de%20como%20vender%20sem%20estoque?&image=https://d1ih8jugeo2m5m.cloudfront.net/2020/11/Como-vender-sem-ter-um-estoque-proprio.jpg&author=Victoria%20Salemi&theme=blog) with custom theme as param ( &theme=blog)
+  - Ex.: `/api/ogimage?title=something&subtitle=Anything&theme=blog`
 
 ## Requirements
 
