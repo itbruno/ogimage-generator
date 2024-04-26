@@ -6,7 +6,7 @@ function Home() {
 
   const [title, setTitle] = useState('Your title here');
   const [image, setImage] = useState('');
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(1200);
   const [height, setHeight] = useState(600);
   const [selectedTheme, setTheme] = useState(themes[0]);
   const [generatedImageUrl, setGeneratedImageUrl] = useState('');
@@ -60,12 +60,12 @@ function Home() {
           <input
             placeholder="Width"
             type="text"
-            onChange={(e) => setWidth(Number(e.target.value))}
+            onChange={(e) => setHeight((e.target.value && Number(e.target.value) > 700) ? Number(e.target.value) : 800)}
           />
           <input
             placeholder="Height"
             type="text"
-            onChange={(e) => setHeight(Number(e.target.value))}
+            onChange={(e) => setHeight((e.target.value && Number(e.target.value) > 100) ? Number(e.target.value) : 600)}
           />
 
           <select onChange={(e) => setTheme(e.target.value)} name="theme" id="theme">
@@ -78,12 +78,18 @@ function Home() {
           </a>
         </div>
 
-        <iframe src={generatedImageUrl} style={{
+        <div style={{
+          background: '#eee'
+        }}>
+        <img src={generatedImageUrl} style={{
           border: '1px solid #eee',
           borderRadius: '8px',
           width: width,
-          height: (height && height > 0) ? height : 600,
+          maxWidth: '100%',
+          objectFit: 'contain',
+          height,
         }} />
+        </div>
       </div>
     </>
   );
